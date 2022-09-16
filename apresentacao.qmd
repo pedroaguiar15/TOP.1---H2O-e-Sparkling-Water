@@ -1,0 +1,156 @@
+---
+title: "H2O e Sparkling Water - Tópicos em Estatística 1"
+subtitle: "2022.1 - UnB - Professor Guilherme Rodrigues"
+author: "Bruno Gondim, Eraldo Jair, José Felipe, Paulo Henrique e Pedro Aguiar"
+date: "12/09/2022"
+theme: "AnnArbor"
+colortheme: "dolphin"
+toc: true
+toc-title: Sumário
+format: beamer
+slide-level: 2
+---
+
+# Introdução
+
+## *H2O* e *H2O.ai*: o que é?
+
+```{r, out.width='50%', fig.align='center'}
+
+knitr::include_graphics('H2O.ai-Logo_1000px.png')
+```
+
+------------------------------------------------------------------------
+
+A H2O.ai é uma empresa de software de machine learning e inteligência artificial, sediada no Vale do Silício e reconhecida como visionária pelo Gartner. Formam um time de "Makers" que trouxe para o mercado novas plataformas e tecnologias que impulsionaram o movimento de IA.\
+\
+São os idealizadores da H2O, plataforma líder em algoritmos de código aberto (open-source) para machine learning e inteligência artificial, utilizada por aproximadamente metade das empresas listadas na Fortune 500 e confiada por mais de 20 mil organizações, além de centenas de cientistas de dados ao redor do mundo.
+
+------------------------------------------------------------------------
+
+É possível efetuar o *download* tanto localmente quanto em nuvem.\
+Ambientes em nuvem suportados:
+
+-   Instâncias *Amazon EC2* e *Storage S3* (*RedHat AMI, Amazon Linux AMI,* e *Ubuntu AMI*)
+
+-   *Amazon AWS*
+
+-   *Microsoft Azure*
+
+-   *Databricks*
+
+-   *IBM Power 9*
+
+-   *Nimbix Cloud*
+
+-   *Google Cloud*
+
+------------------------------------------------------------------------
+
+Em [h20.ai/download](https://h2o.ai/resources/download/){style="blue"}, é possível fazer o *download*
+
+```{r, out.width='100%', fig.align='center'}
+
+knitr::include_graphics('DownloadH2O.png')
+```
+
+# *H2O - Flow Web*
+
+*H2O Flow* é uma interface de usuário de código aberto para *H2O*. É um ambiente interativo baseado na web que permite combinar execução de código, texto, matemática, gráficos e mídia avançada em um único documento.\
+\
+*H2O Flow* envia comandos para *H2O* como uma sequência de células executáveis. As células podem ser modificadas, reorganizadas ou salvas em uma biblioteca. Cada célula contém um campo de entrada que permite inserir comandos, definir funções, chamar outras funções e acessar outras células ou objetos na página. Quando você executa a célula, a saída é um objeto gráfico, que pode ser inspecionado para visualizar detalhes adicionais.
+
+------------------------------------------------------------------------
+
+Embora o *H2O Flow* suporte *API REST*, *scripts R* e *CoffeeScript*, nenhuma experiência de programação é necessária para executar o *H2O Flow*. Você pode clicar em qualquer operação *H2O* sem nunca escrever uma única linha de código. Você pode até mesmo desabilitar as células de entrada para executar o *H2O Flow* usando apenas a *GUI*. O *H2O Flow* foi projetado para guiá-lo em todas as etapas, fornecendo prompts de entrada, ajuda interativa e fluxos de exemplo.
+
+------------------------------------------------------------------------
+
+```{r, out.width='100%', fig.align='center'}
+
+knitr::include_graphics('DownloadH2O-pt.dois.png')
+```
+
+------------------------------------------------------------------------
+
+**Observação:**\
+ao rodar o código no terminal, o comando "*unzip*" não foi reconhecido pelo *Windows PowerShell*.\
+Utilizando o comando "*Expand-Archive*" no lugar, funcionou.
+
+------------------------------------------------------------------------
+
+## Ambiente de trabalho - *H2O Flow*
+
+```{r, out.width='100%', fig.align='center'}
+
+knitr::include_graphics('h2o-ambiente.png')
+```
+
+------------------------------------------------------------------------
+
+Na próxima vez que você quiser iniciar o *Flow*, rode o seguinte código no terminal:
+
+    cd ~/Downloads/h2o-3.36.1.4
+    java -jar h2o.jar
+
+E acesse [localhost/flow](http://localhost:54321){style="blue"} novamente.
+
+------------------------------------------------------------------------
+
+Em [tutorial.flow](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/flow.html){style="blue"}, está presente todo o passo a passo de como usar o *H2O Flow*. Alguns pontos importantes da interface são:
+
+-   Fluxos de exemplo: *HELP -\> view example Flows*;
+
+-   Começar um novo fluxo: "*nem flow*";
+
+-   Modos de célula: "editar" ou "comandar"
+
+    -   Células de comando:
+
+        -   MD (*markdown*)
+
+        -   CS (código padrão)
+
+        -   RAW (comentários de código)
+
+        -   H\[1-6\] (níveis de cabeçalho)
+
+-   *Clips*: salvar células
+
+# *H2O -* *R*
+
+Código para instalar o pacote "*H2O*" no *R*:
+
+    # The following two commands remove any previously 
+    # installed H2O packages for R.
+    if ("package:h2o" %in% search()) 
+    { detach("package:h2o", unload=TRUE) }
+    if ("h2o" %in% rownames(installed.packages())) 
+    { remove.packages("h2o") }
+
+    # Next, we download packages that H2O depends on.
+    pkgs <- c("RCurl","jsonlite")
+    for (pkg in pkgs) {
+    if (! (pkg %in% rownames(installed.packages()))) 
+    { install.packages(pkg) }}
+
+------------------------------------------------------------------------
+
+    # Now we download, install and initialize 
+    # the H2O package for R.
+    install.packages("h2o", type="source",
+    repos=
+    "https://h2o-release.s3.amazonaws.com/h2o/rel-zumbo/4/R")
+
+    # Finally, let's load H2O and start up an H2O cluster
+    library(h2o)
+    h2o.init()
+
+# *H2O -* *Google Colab*
+
+# *Sparkling Water*
+
+# Fontes
+
+-   https://docs.h2o.ai/h2o-tutorials/latest-stable/index.html
+-   https://spark.rstudio.com/guides/h2o.html
