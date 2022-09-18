@@ -1,0 +1,60 @@
+Por que usar o h2o:
+
+- superar limitações do R, tais como:
+
+- leitura de arquivos grandes (5GB+)
+
+- mau gerenciamento de memória
+
+
+Problemas de usar o H2o no R:
+
+modelos em R (e python também) não lidam tão bem assim com aplicações Java e Scala
+
+
+
+sobre o H2o:
+
+- plataforma open source
+
+- com processamento em memória e de forma distribuída
+
+- pode ser usado para ETL, algoritmos estatísticos, e ML (GBM,GLM,Deep learning,etc)
+
+- mais eficiente se escrito em Java e Scala
+
+
+H2o por baixo do capô:
+
+- desenvolvido para trabalhar com interhabilidade entre memória e disco de maneira simples ou seja, ele somente importa para a memória os objetos que de fato estão sendo utilizados no banco de dados (lazy load)
+
+- otimizado para processamento paralelo, em clusters e nós na nuvem. Mas também lida bem com a máquina local, assim como clusters locais. Consegue mapear os discos do cluster (não precisa trabalhar somente com um, ou fazer um endereçamento particular de cada disco do cluster, bastanto informas os IP’s das máquinas.
+
+
+- H2o é uma plataforma com interpretador interno que aceita o código em R como interface cliente, porém traduz os comandos para Scala internamente, ou então traduz diretamente para algoritmos já preparados dentro da ferramenta (ML, Kmeans,GLM,...)
+
+- usa um banco de dados do tipo “chave e valor” (um mecanismo similar ao lazy load)
+
+
+- ele próprio faz o management da memória, identificando quando existe memória disponivel, e quando não tem, automaticamente faz adaptações mandando dados para a CPU ou disco.
+
+VANTAGENS:
+
+- Até 100x mais veloz que o Scikit learn.
+
+- escalabilidade (quanto mais máquinas no cluster, melhor.)
+
+- interface UI para monitoramento em tempo real
+
+
+Funciona com Hadoop, Spark (Sparklyng Water) ou stand-alone
+
+Stand alone:
+
+Comando R ? h2o ? Ambiente R
+
+Alguns comandos:
+
+h2o_df=h2o.importFile(“./path/arquivo.csv”)
+
+- se transforma internamente num arquivo do tipo h2oFrame

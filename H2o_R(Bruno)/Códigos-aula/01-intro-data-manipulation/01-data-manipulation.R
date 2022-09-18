@@ -8,7 +8,7 @@ for(p in requiredPackages){
 # Semente randomica global
 seed <- 42
 
-?h2o.init
+# ?h2o.init
 
 h2o.init(nthreads = -1)
 
@@ -134,3 +134,8 @@ h2o.auc(perf)
 # Referencias
 # [1] - https://stackoverflow.com/questions/9341635/check-for-installed-packages-before-running-install-packages
 # [2] - https://pt.wikipedia.org/wiki/Quantil
+
+# FONTE:
+
+# Aula 03 - h2o introdução a manipulação dados (Primeiro modelo) - Prof. Flávio Clésio
+# Link: https://www.youtube.com/watch?v=J6DjhhZN9-A&list=PLjdDBZW3EmXe_auwS29jLPBZ3_2PpaNiU&index=3

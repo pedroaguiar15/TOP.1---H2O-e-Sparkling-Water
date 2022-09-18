@@ -146,6 +146,48 @@ Código para instalar o pacote "*H2O*" no *R*:
     library(h2o)
     h2o.init()
 
+------------------------------------------------------------------------
+
+## Workflor - Arquitetura do H2O.AI no R
+
+```{r, out.width='100%', fig.align='center'}
+
+knitr::include_graphics('workflowh2oR.png')
+```
+
+------------------------------------------------------------------------
+
+Resumidamente, Comando R → h2o → Ambiente R
+
+Exemplo de comando:
+
+**h2o_df=h2o.importFile(“./path/arquivo.csv”)**
+
+- se transforma internamente num arquivo do tipo h2oFrame
+
+------------------------------------------------------------------------
+
+Vantagens:
+
+- Até 100x mais veloz que o Scikit learn.
+
+- Escalabilidade (quanto mais máquinas no cluster, melhor.)
+
+- Interface UI para monitoramento em tempo real
+
+Por que usar o h2o:
+
+- superar limitações do R, tais como:
+
+- Leitura de arquivos grandes (5GB+)
+
+- Mau gerenciamento de memória
+
+Problemas de usar o H2o no R:
+
+- Modelos em R (**e python também**) não lidam tão bem assim com aplicações Java e Scala
+
+
 # *H2O -* *Google Colab*
 
 # *Sparkling Water*
