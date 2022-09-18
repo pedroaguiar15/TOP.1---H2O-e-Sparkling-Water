@@ -20,6 +20,11 @@ h2o.init(nthreads = -1)
 
 # demo(h2o.glm)
 
+
+# vamos usar um exemplo de um Banco chamado de Layman Brothers que tem como 
+# objetivo entregar um serviço de Machine Learning que informa se um cliente 
+# vai entrar em uma situação de atraso de pagamento ou não
+
 layman_brothers_url <-
   "https://raw.githubusercontent.com/fclesio/learning-space/master/Datasets/02%20-%20Classification/default_credit_card.csv"
 
