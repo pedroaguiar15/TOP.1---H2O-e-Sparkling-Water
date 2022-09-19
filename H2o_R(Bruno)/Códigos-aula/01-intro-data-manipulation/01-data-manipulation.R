@@ -25,6 +25,8 @@ h2o.init(nthreads = -1)
 # objetivo entregar um serviço de Machine Learning que informa se um cliente 
 # vai entrar em uma situação de atraso de pagamento ou não
 
+# 30.000 linhas e 25 colunas
+
 layman_brothers_url <-
   "https://raw.githubusercontent.com/fclesio/learning-space/master/Datasets/02%20-%20Classification/default_credit_card.csv"
 
