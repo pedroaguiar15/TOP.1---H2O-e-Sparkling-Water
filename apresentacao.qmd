@@ -22,13 +22,20 @@ knitr::include_graphics('H2O.ai-Logo_1000px.png')
 
 ------------------------------------------------------------------------
 
-A H2O.ai é uma empresa de software de machine learning e inteligência artificial, sediada no Vale do Silício e reconhecida como visionária pelo Gartner. Formam um time de "Makers" que trouxe para o mercado novas plataformas e tecnologias que impulsionaram o movimento de IA.\
-\
-São os idealizadores da H2O, plataforma líder em algoritmos de código aberto (open-source) para machine learning e inteligência artificial, utilizada por aproximadamente metade das empresas listadas na Fortune 500 e confiada por mais de 20 mil organizações, além de centenas de cientistas de dados ao redor do mundo.
+O *H2O* é uma plataforma de aprendizado de máquina distribuído na memória totalmente de código aberto com escalabilidade linear. É compatível com os algoritmos estatísticos e de aprendizado de máquina mais usados, incluindo máquinas impulsionadas por gradiente, modelos lineares generalizados, aprendizado profundo e muito mais. Também possui uma funcionalidade *AutoML* líder do setor que executa automaticamente todos os algoritmos e seus hiperparâmetros para produzir uma tabela de classificação dos melhores modelos. A plataforma é usada por mais de 18.000 organizações em todo o mundo e é extremamente popular nas comunidades *R* e *Python*, além de ser utilizada por aproximadamente metade das empresas listadas na *Fortune* 500.
 
 ------------------------------------------------------------------------
 
-É possível efetuar o *download* tanto localmente quanto em nuvem.\
+A *H2O.ai* é uma empresa de *software* de *machine learning* e inteligência artificial, sediada no Vale do Silício e reconhecida como visionária pelo *Gartner*. Formam um time de "*Makers*" que trouxe para o mercado novas plataformas e tecnologias que impulsionaram o movimento de IA.
+
+```{r, out.width='70%', fig.align='center'}
+
+knitr::include_graphics('h2o-contexto.png')
+```
+
+------------------------------------------------------------------------
+
+É possível executar o *download* do *software* tanto localmente quanto em nuvem.\
 Ambientes em nuvem suportados:
 
 -   Instâncias *Amazon EC2* e *Storage S3* (*RedHat AMI, Amazon Linux AMI,* e *Ubuntu AMI*)
@@ -47,14 +54,14 @@ Ambientes em nuvem suportados:
 
 ------------------------------------------------------------------------
 
-Em [h20.ai/download](https://h2o.ai/resources/download/){style="blue"}, é possível fazer o *download*
+Em [\textcolor{blue}{h2o.ai/download}](https://h2o.ai/resources/download/), o *download* está disponível.
 
 ```{r, out.width='100%', fig.align='center'}
 
 knitr::include_graphics('DownloadH2O.png')
 ```
 
-# *H2O - Flow Web*
+# *H2O - Flow*
 
 *H2O Flow* é uma interface de usuário de código aberto para *H2O*. É um ambiente interativo baseado na web que permite combinar execução de código, texto, matemática, gráficos e mídia avançada em um único documento.\
 \
@@ -93,11 +100,11 @@ Na próxima vez que você quiser iniciar o *Flow*, rode o seguinte código no te
     cd ~/Downloads/h2o-3.36.1.4
     java -jar h2o.jar
 
-E acesse [localhost/flow](http://localhost:54321){style="blue"} novamente.
+E acesse [\textcolor{blue}{localhost}](http://localhost:54321) novamente.
 
 ------------------------------------------------------------------------
 
-Em [tutorial.flow](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/flow.html){style="blue"}, está presente todo o passo a passo de como usar o *H2O Flow*. Alguns pontos importantes da interface são:
+Em [\textcolor{blue}{tutorial.flow}](https://docs.h2o.ai/h2o/latest-stable/h2o-docs/flow.html), está presente todo o passo a passo de como usar o *H2O Flow*. Alguns pontos importantes da interface são:
 
 -   Fluxos de exemplo: *HELP -\> view example Flows*;
 
@@ -151,46 +158,123 @@ Código para instalar o pacote "*H2O*" no *R*:
 ## Workflor - Arquitetura do H2O.AI no R
 
 ```{r, out.width='100%', fig.align='center'}
-
 knitr::include_graphics('workflowh2oR.png')
 ```
 
 ------------------------------------------------------------------------
 
-Resumidamente, Comando R → h2o → Ambiente R
+Resumidamente, Comando *R* → *H2O* → Ambiente *R*
 
 Exemplo de comando:
 
-**h2o_df=h2o.importFile(“./path/arquivo.csv”)**
+**h2o_df=h2o.importFile("./path/arquivo.csv")**
 
-- se transforma internamente num arquivo do tipo h2oFrame
+-   se transforma internamente num arquivo do tipo *h2oFrame*
 
 ------------------------------------------------------------------------
 
 Vantagens:
 
-- Até 100x mais veloz que o Scikit learn.
+-   Até 100x mais veloz que o *Scikit Learn*.
 
-- Escalabilidade (quanto mais máquinas no cluster, melhor.)
+-   Escalabilidade (quanto mais máquinas no *cluster*, melhor.)
 
-- Interface UI para monitoramento em tempo real
+-   Interface *UI* para monitoramento em tempo real
 
-Por que usar o h2o:
+Por que usar o *H2O*:
 
-- superar limitações do R, tais como:
+-   superar limitações do *R*, tais como:
 
-- Leitura de arquivos grandes (5GB+)
+    -   Leitura de arquivos grandes (5GB+)
 
-- Mau gerenciamento de memória
+    -   Mau gerenciamento de memória
 
-Problemas de usar o H2o no R:
+Problemas de usar o *H2O* no *R*:
 
-- Modelos em R (**e python também**) não lidam tão bem assim com aplicações Java e Scala
+-   Modelos em *R* (**e *Python* também**) não lidam tão bem assim com aplicações *Java e Scala*
 
+# *H2O -* *Google Cloud*
 
-# *H2O -* *Google Colab*
+Recomendação padrão para iniciar o *H2O-3*:
+
+-   4 *CPU's*
+
+-   15 *GB RAM*
+
+-   3 *nodes*
+
+------------------------------------------------------------------------
+
+## Instalação
+
+-   Faça o *log-in* em [\textcolor{blue}{Google Compute Engine Console}](https://console.cloud.google.com/)
+
+-   Em [\textcolor{blue}{console.cloud.google.com/h2o-3-cluster}](https://console.cloud.google.com/marketplace/details/h2o-public/h2oai-h2o3-cluster-launcher?project=annular-system-352923), clique em "**abrir**"
+
+```{r, out.width='50%', fig.align='center'}
+
+knitr::include_graphics('h2o-cluster-gcloud.png')
+```
+
+------------------------------------------------------------------------
+
+1.  Especifique um nome para esta implantação.
+
+2.  Selecione uma zona para a implantação.
+
+3.  Selecione ou personalize um tipo de máquina e quantidade de memória.
+
+4.  Especifique o número de nós para a máquina virtual.
+
+5.  Especifique o tipo e o tamanho do disco de inicialização (em GB).
+
+6.  Especifique os nomes de rede e sub-rede.
+
+------------------------------------------------------------------------
+
+Clique em "**Implantar**". Você será direcionado para a seguinte página:
+
+```{r, out.width='100%', fig.align='center'}
+
+knitr::include_graphics('h2o-cluster-gcloud2.png')
+```
+
+------------------------------------------------------------------------
+
+Acesse o IP em "**Connect At**". Em seguida, será solicitado o nome do usuário (*h2oai*) e a senha (*1531168419867869489*).
+
+Assim, você estará conectado ao *H2O-3 Cluster*.
 
 # *Sparkling Water*
+
+-   O *Sparkling Water* foi um pacote desenvolvido para aprendizado de máquina de forma rápida e escalável.
+
+## *H2O + Spark = Sparkling Water*
+
+-   *Sparkling water* vem da junção do *H2O* com o *Spark*, onde o termo *Sparkling Water* significa "água com gás".
+
+## Vantagens do Spark e H2O:
+
+### Vantagens do Spark:
+
+-   *ML Pipelines*;
+-   *ETL* poderoso;
+-   Algoritmos (NLP);
+
+### Vantagens do H2O:
+
+-   Algoritmos avançados;
+-   Velocidade e acuracia;
+-   Computação distribuida e paralelizada;
+-   É possível trabalhar com *R, Python* e *Scala*
+
+------------------------------------------------------------------------
+
+-   *Sparkling Water* contém os mesmos recursos e funcionalidades do *H2O*, mas fornece uma maneira de usar o *H2O* com o *Spark*, uma estrutura de *cluster* de grande escala.
+
+-   É ideal para usuários de *H2O* que precisam gerenciar grandes clusters para suas necessidades de processamento de dados e desejam transferir dados do *Spark* para o *H2O* (ou vice-versa).
+
+-   Há também uma interface *Python* disponível para permitir o acesso ao *Sparkling Water* diretamente do *PySpark*.
 
 # Fontes
 
